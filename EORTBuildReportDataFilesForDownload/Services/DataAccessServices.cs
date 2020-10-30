@@ -159,6 +159,11 @@ namespace EORTBuildReportDataFilesForDownload.Services
                         rawDataRecord.Curriculum = qdaAssetAndCurriculumSeriesData[rawDataRecord.OriginalAssetID][0];
                         rawDataRecord.Series = qdaAssetAndCurriculumSeriesData[rawDataRecord.OriginalAssetID][1];
                     }
+                    else if(rawDataRecord.FormattedAssetID.StartsWith("z", StringComparison.OrdinalIgnoreCase))
+                    {
+                        rawDataRecord.Curriculum = "Legal Compliance";
+                        rawDataRecord.Curriculum = "Compliance Content";
+                    }
 
                     rawDataRecords.Add(rawDataRecord);
 
@@ -223,6 +228,11 @@ namespace EORTBuildReportDataFilesForDownload.Services
                     {
                         rawDataRecord.Curriculum = qdaAssetAndCurriculumSeriesData[rawDataRecord.OriginalAssetID][0];
                         rawDataRecord.Series = qdaAssetAndCurriculumSeriesData[rawDataRecord.OriginalAssetID][1];
+                    }
+                    else if (rawDataRecord.FormattedAssetID.StartsWith("z", StringComparison.OrdinalIgnoreCase))
+                    {
+                        rawDataRecord.Curriculum = "Legal Compliance";
+                        rawDataRecord.Curriculum = "Compliance Content";
                     }
 
                     rawDataRecords.Add(rawDataRecord);
