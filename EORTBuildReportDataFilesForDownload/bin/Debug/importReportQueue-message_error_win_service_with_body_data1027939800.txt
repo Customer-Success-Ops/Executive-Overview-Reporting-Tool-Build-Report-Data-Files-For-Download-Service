@@ -1,0 +1,6 @@
+Time: 21/03/2019 03:37:11 PM
+-----------------------------------------------------------
+Reason for message error: Invalid column name 'userID'.
+Invalid column name 'emailFROM'.
+-----------------------------------------------------------Data from Message when exception occured:
+Body Data: 1449~/~1
