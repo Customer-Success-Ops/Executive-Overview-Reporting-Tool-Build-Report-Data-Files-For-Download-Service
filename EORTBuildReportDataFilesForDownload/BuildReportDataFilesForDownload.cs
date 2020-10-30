@@ -18,7 +18,7 @@ namespace EORTBuildReportDataFilesForDownload
         public BuildReportDataFilesForDownload()
         {
             InitializeComponent();
-            string queuePath = ConfigurationManager.AppSettings["buildRawDataReportZipQueue"];
+            string queuePath = AppSettingServices.GetAppSetting("buildRawDataReportZipQueue");
             MessageQueue queue = null;
             XmlMessageFormatter formatter = new XmlMessageFormatter(new Type[1] { typeof(string) });
             try
@@ -53,11 +53,11 @@ namespace EORTBuildReportDataFilesForDownload
 
         private void BuildReportDataFilesForDownload_ReceiveCompleted(object sender, ReceiveCompletedEventArgs e)
         {
-            MessageQueue queue = null;
+            MessageQueue queue;
             Message message = null;
-            int runID = 0;
-            int userID = 0;
-            string messageBody = string.Empty;
+            int runID;
+            int userID;
+            string messageBody;
             string[] splitMessageBody;
             try
             {
