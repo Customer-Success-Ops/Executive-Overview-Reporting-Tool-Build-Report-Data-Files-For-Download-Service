@@ -124,10 +124,10 @@ namespace EORTBuildReportDataFilesForDownload.Services
                     foreach (DurationRawDataRecord record in rawDataRecords)
                     {
                         csvWriter.WriteField(record.Username);
-                        csvWriter.WriteField(record.AssetTitle);
                         csvWriter.WriteField(record.OriginalAssetID);
                         csvWriter.WriteField(record.FormattedAssetID);
                         csvWriter.WriteField(record.FormattedAccessDate);
+                        csvWriter.WriteField(record.AssetTitle);
                         csvWriter.WriteField(record.AssetType);
                         csvWriter.WriteField(record.AssetSubType);
                         csvWriter.WriteField(record.TimesAccessed);
