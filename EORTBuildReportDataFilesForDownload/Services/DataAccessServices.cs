@@ -116,7 +116,7 @@ namespace EORTBuildReportDataFilesForDownload.Services
         private static void GetMobileAnalysisChartRawDataAndBuildReport(int runID, string rawDataFilePath, Dictionary<string, string[]> qdaAssetAndCurriculumSeriesData)
         {
             int recordCounter = 0;
-            bool requiresWrittingHeaders = true;
+            bool requiresWritingHeaders = true;
             string query = "SELECT rd.username, rd.firstName, rd.lastName, rd.assetTitle, rd.formattedAssetID, rd.originalAssetID, rd.assetType, " +
                       "rd.assetSubType, rd.formattedAssetDate, rd.sourceType, rd.deviceType " +
                       "FROM execOverviewTool_ReportData as rd " +
@@ -170,8 +170,8 @@ namespace EORTBuildReportDataFilesForDownload.Services
                     recordCounter++;
                     if (recordCounter % 100000 == 0)
                     {
-                        FileServices.BuildMobileAnalysisChartRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWrittingHeaders);
-                        requiresWrittingHeaders = false;
+                        FileServices.BuildMobileAnalysisChartRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWritingHeaders);
+                        requiresWritingHeaders = false;
                         rawDataRecords = new List<MobileAnalysisChartRawDataRecord>();
                     }
                 }
@@ -179,14 +179,14 @@ namespace EORTBuildReportDataFilesForDownload.Services
 
             if (rawDataRecords.Count > 0)
             {
-                FileServices.BuildMobileAnalysisChartRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWrittingHeaders);
+                FileServices.BuildMobileAnalysisChartRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWritingHeaders);
             }
         }
 
         private static void GetDurationRelatedRawDataAndBuildReport(int runID, string rawDataFilePath, Dictionary<string, string[]> qdaAssetAndCurriculumSeriesData)
         {
             int recordCounter = 0;
-            bool requiresWrittingHeaders = true;
+            bool requiresWritingHeaders = true;
             string query = "SELECT rd.username, rd.originalAssetID, rd.formattedAssetID, rd.formattedAssetDate, rd.assetTitle, rd.assetType, rd.assetSubType, rd.timesAccessed, rd.expectedDuration, " +
                        "rd.actualDuration, rd.pageReads " +
                        "FROM execOverviewTool_DurationRelatedReportData as rd " +
@@ -232,7 +232,7 @@ namespace EORTBuildReportDataFilesForDownload.Services
                     else if (rawDataRecord.FormattedAssetID.StartsWith("z", StringComparison.OrdinalIgnoreCase))
                     {
                         rawDataRecord.Curriculum = "Legal Compliance";
-                        rawDataRecord.Curriculum = "Compliance Content";
+                        rawDataRecord.Series = "Compliance Content";
                     }
 
                     rawDataRecords.Add(rawDataRecord);
@@ -240,8 +240,8 @@ namespace EORTBuildReportDataFilesForDownload.Services
                     recordCounter++;
                     if (recordCounter % 100000 == 0)
                     {
-                        FileServices.BuildDurationRelatedRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWrittingHeaders);
-                        requiresWrittingHeaders = false;
+                        FileServices.BuildDurationRelatedRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWritingHeaders);
+                        requiresWritingHeaders = false;
                         rawDataRecords = new List<DurationRawDataRecord>();
                     }
                 }
@@ -249,7 +249,7 @@ namespace EORTBuildReportDataFilesForDownload.Services
 
             if (rawDataRecords.Count > 0)
             {
-                FileServices.BuildDurationRelatedRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWrittingHeaders);
+                FileServices.BuildDurationRelatedRawDataReportCsvFile(rawDataRecords, rawDataFilePath, requiresWritingHeaders);
             }
 
         }
