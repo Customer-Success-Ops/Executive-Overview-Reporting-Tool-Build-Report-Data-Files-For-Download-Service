@@ -83,6 +83,7 @@ namespace EORTBuildReportDataFilesForDownload.Services
             {
                 try
                 {
+                    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
                     SmtpClient client = new SmtpClient()
                     {
                         Host = "nasmail.skillsoft.com",
